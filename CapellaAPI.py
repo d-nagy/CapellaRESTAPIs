@@ -18,7 +18,7 @@ class CapellaAPI(CapellaAPIRequests):
         self.perPage = 100
 
     def get_authorization_internal(self):
-        basic = base64.encodebytes(bytes('{}:{}'.format(self.user, self.pwd), 'utf-8')).strip(b'\n').decode()
+        basic = base64.b64encode('{}:{}'.format(self.user, self.pwd).encode('utf-8')).decode('utf-8').strip('\n')
         header = {'Authorization': 'Basic %s' % basic}
         resp = self._urllib_request(
             "{}/sessions".format(self.internal_url), method="POST",
