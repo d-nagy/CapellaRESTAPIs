@@ -241,6 +241,24 @@ class CapellaAPI(CapellaAPIRequests):
                                     params='', headers=capella_header)
         return resp
 
+    def create_cluster_internal(self, tenant_id, cluster_params):
+        capella_header = self.get_authorization_internal()
+        url = '{}/v2/organizations/{}//clusters/deploy'\
+              .format(self.internal_url, tenant_id)
+
+        resp = self._urllib_request(url, method="POST", params=cluster_params,
+                                    headers=capella_header)
+        return resp
+
+    def get_cluster_deployment_options(self, tenant_id):
+        capella_header = self.get_authorization_internal()
+        url = '{}/v2/organizations/{}/clusters/deployment-options'\
+            .format(self.internal_url, tenant_id)
+
+        resp = self._urllib_request(url, method="GET",
+                                    params='', headers=capella_header)
+        return resp
+
     def get_nodes(self, tenant_id, project_id, cluster_id):
         capella_header = self.get_authorization_internal()
         url = '{}/v2/organizations/{}/projects/{}/clusters/{}'\
