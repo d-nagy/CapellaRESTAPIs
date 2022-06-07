@@ -243,7 +243,7 @@ class CapellaAPI(CapellaAPIRequests):
 
     def create_cluster_internal(self, tenant_id, cluster_params):
         capella_header = self.get_authorization_internal()
-        url = '{}/v2/organizations/{}//clusters/deploy'\
+        url = '{}/v2/organizations/{}/clusters/deploy'\
               .format(self.internal_url, tenant_id)
 
         resp = self._urllib_request(url, method="POST", params=cluster_params,
