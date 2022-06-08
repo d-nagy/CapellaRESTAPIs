@@ -8,5 +8,6 @@ setup(
         'CapellaAPIRequests',
         'CapellaAPIAuth',
         'CapellaExceptions'
-    ]
+    ],
+    install_requires=['requests']
 )
