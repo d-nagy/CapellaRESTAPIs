@@ -5,9 +5,13 @@ import logging
 import pprint
 
 
-from .CapellaAPIAuth import CapellaAPIAuth
-from .CapellaExceptions import MissingAccessKeyError, \
-    MissingSecretKeyError, GenericHTTPError, CbcAPIError
+from CapellaAPIAuth import CapellaAPIAuth
+from CapellaExceptions import (
+    MissingAccessKeyError,
+    MissingSecretKeyError,
+    GenericHTTPError,
+    CbcAPIError
+)
 
 
 class CapellaAPIRequests(object):
