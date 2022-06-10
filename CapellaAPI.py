@@ -307,6 +307,14 @@ class CapellaAPI(CapellaAPIRequests):
                                     headers=capella_header)
         return resp
 
+    def get_allowed_ips(self, tenant_id, project_id, cluster_id, page=1, limit=100):
+        capella_header = self.get_authorization_internal()
+        url = '{}/v2/organizations/{}/projects/{}/clusters/{}/allowlists?page={}&perPage={}'\
+              .format(self.internal_url, tenant_id, project_id, cluster_id, page, limit)
+        
+        resp = self._urllib_request(url, method="GET", headers=capella_header)
+        return resp
+
     def load_sample_bucket(self, tenant_id, project_id, cluster_id,
                            bucket_name):
         capella_header = self.get_authorization_internal()
